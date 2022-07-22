@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+
+  postgres:
+    image: postgres:10-alpine
+    env_file:
+      - ../.env
+    volumes: 
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgrespasswd
+      - POSTGRES_USER=postgresuser
+    ports:
+      - 25432:25432
+    command:
+      - "postgres"
+      - "-c"
+      - "listen_addresses=*"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pg-admin
+    restart: "always"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@localhost.com
+      - PGADMIN_DEFAULT_PASSWORD=pguser
+    ports:
+      - 2345:80
+
+volumes:
+  pgdata:
