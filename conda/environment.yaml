@@ -1,0 +1,8 @@
+name: poc-portainer
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - docker-compose
+  - make
+  - pip

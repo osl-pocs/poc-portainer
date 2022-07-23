@@ -23,7 +23,7 @@ services:
     restart: "always"
     environment:
       - PGADMIN_DEFAULT_EMAIL=user@localhost.com
-      - PGADMIN_DEFAULT_PASSWORD=pguser
+      - PGADMIN_DEFAULT_PASSWORD=postgrespasswd
     ports:
       - 2345:80
 
